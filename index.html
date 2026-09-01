@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
   <meta name="description" content="ChatDORA builds websites, apps, business software, AI automations, ecommerce systems, branding, marketing creatives, SEO setups, and global-ready digital experiences." />
   <meta property="og:title" content="ChatDORA" />
   <meta property="og:description" content="Build, automate and grow your business with global-ready digital services." />
-  <link rel="icon" type="image/png" href="{% static 'images/dora-logo.png' %}" />
+  <link rel="icon" type="image/png" href="static/images/dora-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -1074,7 +1073,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo">
         <div class="nav-logo-icon">
-          <img src="{% static 'images/dora-logo.png' %}" alt="ChatDORA logo">
+          <img src="static/images/dora-logo.png" alt="ChatDORA logo">
         </div>
         ChatDORA
       </a>
@@ -1200,15 +1199,31 @@
       <h2 class="section-title">Browse Our <span class="gradient-text">Website Templates</span></h2>
       </div>
     <div class="template-grid">
-      {% for template in template_gallery %}
       <article class="template-card reveal">
         <div class="template-thumb">
-          <img src="{% static template.image %}" alt="{{ template.alt }}" loading="lazy">
+          <img src="static/images/template-previews/restaurant-template.png" alt="Restaurant website template preview image" loading="lazy">
         </div>
         <div class="template-content">
         </div>
       </article>
-      {% endfor %}
+      <article class="template-card reveal">
+        <div class="template-thumb">
+          <img src="static/images/template-previews/real-estate-template.png" alt="Real estate website template preview image" loading="lazy">
+        </div>
+        <div class="template-content"></div>
+      </article>
+      <article class="template-card reveal">
+        <div class="template-thumb">
+          <img src="static/images/template-previews/gym-template.png" alt="Gym website template preview image" loading="lazy">
+        </div>
+        <div class="template-content"></div>
+      </article>
+      <article class="template-card reveal">
+        <div class="template-thumb">
+          <img src="static/images/template-previews/ecommerce-template.png" alt="Ecommerce website template preview image" loading="lazy">
+        </div>
+        <div class="template-content"></div>
+      </article>
     </div>
   </div>
 </section>
@@ -1222,28 +1237,58 @@
       <p class="section-sub">These are separate live demo pages users can open and explore after they browse the template images above.</p>
     </div>
     <div class="demo-grid">
-      {% for demo in demo_sites %}
       <article class="demo-card reveal">
         <div class="demo-card-top">
-          <div class="demo-icon" style="background: {{ demo.accent }};">
-            <i class="fa-solid {{ demo.icon }}"></i>
+          <div class="demo-icon" style="background: linear-gradient(135deg, rgba(214,108,43,0.95), rgba(252,187,92,0.78));">
+            <i class="fa-solid fa-utensils"></i>
           </div>
           <span class="demo-tag">Live Preview</span>
         </div>
-        <h3>{{ demo.title }}</h3>
-        <div class="demo-subtitle">{{ demo.subtitle }}</div>
-        <p>{{ demo.description }}</p>
+        <h3>Restaurant Website</h3>
+        <div class="demo-subtitle">Menu and bookings demo</div>
+        <p>A hospitality-style landing page built to highlight food, ambience, reservations, and contact details.</p>
         <div class="demo-points">
-          {% for point in demo.highlights %}
-          <span>{{ point }}</span>
-          {% endfor %}
+          <span>Menu</span>
+          <span>Reservations</span>
+          <span>Events</span>
         </div>
         <div class="demo-card-actions">
-          <a href="{% url demo.url_name %}" class="btn btn-primary" target="_blank" rel="noopener">Open Demo</a>
+          <a href="demo-websites/restaurant/" class="btn btn-primary" target="_blank" rel="noopener">Open Demo</a>
           <a href="#cta" class="btn btn-outline">Build Similar</a>
         </div>
       </article>
-      {% endfor %}
+      <article class="demo-card reveal">
+        <div class="demo-card-top">
+          <div class="demo-icon" style="background: linear-gradient(135deg, rgba(94,122,168,0.95), rgba(132,164,208,0.78));">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <span class="demo-tag">Live Preview</span>
+        </div>
+        <h3>Real Estate Website</h3>
+        <div class="demo-subtitle">Property showcase demo</div>
+        <p>A clean property presentation page for featured listings, trust signals, and location-led browsing.</p>
+        <div class="demo-points"><span>Properties</span><span>Search</span><span>Lead capture</span></div>
+        <div class="demo-card-actions">
+          <a href="demo-websites/real-estate/" class="btn btn-primary" target="_blank" rel="noopener">Open Demo</a>
+          <a href="#cta" class="btn btn-outline">Build Similar</a>
+        </div>
+      </article>
+      <article class="demo-card reveal">
+        <div class="demo-card-top">
+          <div class="demo-icon" style="background: linear-gradient(135deg, rgba(24,112,82,0.96), rgba(62,186,125,0.8));">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <span class="demo-tag">Live Preview</span>
+        </div>
+        <h3>Gym Website</h3>
+        <div class="demo-subtitle">Fitness brand demo</div>
+        <p>A bold, action-driven layout for memberships, trainers, programs, and high-energy conversion points.</p>
+        <div class="demo-points"><span>Programs</span><span>Pricing</span><span>Trainers</span></div>
+        <div class="demo-card-actions">
+          <a href="demo-websites/gym/" class="btn btn-primary" target="_blank" rel="noopener">Open Demo</a>
+          <a href="#cta" class="btn btn-outline">Build Similar</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1458,7 +1503,7 @@
             <div class="msg-in">Preparing your GST summary... Done! Here are your figures for the period.</div>
           </div>
         </div>
-        <a href="{% url 'chat' %}" class="btn btn-primary" style="width:100%;justify-content:center;" target="_blank">Chatdora an AI assistant</a>
+        <a href="https://chatdora.in/chat/" class="btn btn-primary" style="width:100%;justify-content:center;" target="_blank" rel="noopener">Chatdora an AI assistant</a>
       </div>
 
       <div class="product-card accent-purple reveal">
@@ -1768,7 +1813,7 @@
       <div>
         <div class="footer-logo">
           <div class="footer-logo-icon">
-            <img src="{% static 'images/dora-logo.png' %}" alt="ChatDORA logo">
+            <img src="static/images/dora-logo.png" alt="ChatDORA logo">
           </div>
           <span class="footer-brand">ChatDORA</span>
         </div>
@@ -1783,7 +1828,7 @@
       <div class="footer-col">
         <h4>Platforms</h4>
         <ul class="footer-links">
-          <li><a href="{% url 'chat' %}">Chatdora AI</a></li>
+          <li><a href="https://chatdora.in/chat/">Chatdora AI</a></li>
           <li><a href="https://apps.chatdora.in/">Business Tools</a></li>
         </ul>
       </div>
@@ -1809,8 +1854,8 @@
     <div class="footer-bottom">
       <p>&copy; 2026 ChatDORA. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
-        <a href="{% url 'terms_of_use' %}">Terms of Service</a>
+        <a href="privacy/">Privacy Policy</a>
+        <a href="terms/">Terms of Service</a>
       </div>
     </div>
   </div>
